@@ -15,4 +15,8 @@ public abstract class SimpleCalculator {
     public abstract String display();
 
     public abstract void evaluate();
+
+    public double getResult(){
+        return this.result;
+    }
 }

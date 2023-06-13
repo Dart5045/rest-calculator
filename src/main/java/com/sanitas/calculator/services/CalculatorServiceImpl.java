@@ -18,7 +18,7 @@ public class CalculatorServiceImpl implements  CalculatorService{
 
 
         if(operator == null) {
-            throw new RuntimeException("Operación imposible de procesar: " + operator);
+            throw new RuntimeException("Operator is missing" );
         }
         SimpleCalculator simpleCalculator;
 
@@ -30,9 +30,7 @@ public class CalculatorServiceImpl implements  CalculatorService{
                 simpleCalculator = new SubtractExpression(number1,number2);
                 break;
             default:
-                //To do: refactor this
-                simpleCalculator = new AddExpression(number1,number2);
-                break;
+                throw new UnsupportedOperationException();
         }
         simpleCalculator.evaluate();
         return  simpleCalculator.display();
