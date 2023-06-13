@@ -1,8 +1,9 @@
 package com.sanitas.calculator.controllers;
 
-import com.sanitas.calculator.services.CalculatorService;
+import com.sanitas.calculator.config.TracerSingleton;
 import com.sanitas.calculator.services.CalculatorServiceImpl;
 import com.sanitas.calculator.utils.OperationTypeEnum;
+import io.corp.calculator.TracerImpl;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -21,6 +22,9 @@ public class CalculatorController {
     @Autowired
     CalculatorServiceImpl  calculatorService;
 
+    @Autowired
+    TracerSingleton tracerSingleton;
+
 
     @GetMapping(value="/calculate")
     public ResponseEntity<String> calculate(
@@ -30,6 +34,7 @@ public class CalculatorController {
             )
     {
         String res = calculatorService.executeOperation(number1, number2, operator);
+        tracerSingleton.trace(res);
         return new ResponseEntity<String>(res ,HttpStatus.OK);
     }
 }
