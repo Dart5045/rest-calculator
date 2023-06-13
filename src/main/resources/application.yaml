@@ -1,0 +1,11 @@
+server:
+  port: 8080
+spring:
+  application:
+    name: calculator-app
+logging:
+  level:
+    root: error
+    com:
+      sanitas:
+        calculator: DEBUG
