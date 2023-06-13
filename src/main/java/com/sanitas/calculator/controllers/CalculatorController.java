@@ -18,7 +18,6 @@ import java.math.BigDecimal;
 @RestController
 @RequestMapping("api/v1")
 public class CalculatorController {
-    //To do, call service instance.
     @Autowired
     CalculatorServiceImpl  calculatorService;
 

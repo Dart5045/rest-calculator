@@ -1,5 +1,8 @@
 package com.sanitas.calculator.services;
 
+import com.sanitas.calculator.math.AddExpression;
+import com.sanitas.calculator.math.SimpleCalculator;
+import com.sanitas.calculator.math.SubtractExpression;
 import com.sanitas.calculator.utils.OperationTypeEnum;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
@@ -13,19 +16,25 @@ public class CalculatorServiceImpl implements  CalculatorService{
     @Override
     public String executeOperation(BigDecimal number1, BigDecimal number2, OperationTypeEnum operator) {
 
-        //To do, call exception if operator is empty
 
-        //To do, create calculator object
+        if(operator == null) {
+            throw new RuntimeException("Operación imposible de procesar: " + operator);
+        }
+        SimpleCalculator simpleCalculator;
 
         switch (operator) {
             case SUM:
-                //To do : call sum calculator method
+                simpleCalculator = new AddExpression(number1,number2);
                 break;
             case SUBTRACTION:
-                //To do: call substraction method.
+                simpleCalculator = new SubtractExpression(number1,number2);
+                break;
+            default:
+                //To do: refactor this
+                simpleCalculator = new AddExpression(number1,number2);
+                break;
         }
-
-        log.debug("Service works");
-        return "Service called";
+        simpleCalculator.evaluate();
+        return  simpleCalculator.display();
     }
 }
