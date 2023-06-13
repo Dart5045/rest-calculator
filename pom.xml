@@ -16,7 +16,22 @@
 	<properties>
 		<java.version>17</java.version>
 	</properties>
+
+	<developers>
+		<developer>
+			<id>bladimirg</id>
+			<name>Bladimir Gonzales Miranda</name>
+		</developer>
+	</developers>
+
+	<scm>
+		<url>https://github.com/Dart5045/sanitas-calculator</url>
+		<connection>scm:git:git://github.com/Dart5045/sanitas-calculator.git</connection>
+	</scm>
+
 	<dependencies>
+
+		<!--Uses Spring MVC, REST and Tomcat as a default embedded server-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
@@ -27,6 +42,8 @@
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<!--Contains the majority of elements required for our tests.-->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
