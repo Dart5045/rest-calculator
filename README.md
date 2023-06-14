@@ -11,8 +11,9 @@ If you have installed Maven on your machine, then use the following Maven comman
 
 ## Performs
 
-To perform a subs operation
+To perform an add operation
 http://localhost:8080/api/v1/calculate?number1=2&number2=3&operator=SUM
 
-To perform an add operation
+To perform a substraction operation
 http://localhost:8080/api/v1/calculate?number1=2&number2=3&operator=SUBTRACTION
+
