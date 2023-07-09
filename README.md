@@ -1,4 +1,4 @@
-# Rest-Sanitas-Calculator
+# Rest-Calculator
 A simple calculator exposed as Rest API, built with Java 11 using Spring Boot.
 
 ## Run with java command
